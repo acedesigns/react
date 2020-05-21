@@ -27,7 +27,7 @@ class App extends React.Component {
     render() {
         return (
             <Container>
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <Navigation />
                     <Content/>
                 </Router>
