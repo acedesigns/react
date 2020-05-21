@@ -9,16 +9,19 @@
  */
 
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { Home, Companies, About } from './components';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { Home, Companies, About, PageNotFound } from './components';
 
 function Content () {
 
     return(
         <div>
+            <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/numbers" component={Companies} />
             <Route path="/about" component={About} />
+            <Route component={PageNotFound} />
+            </Switch>
         </div>
     )
 }

@@ -11,3 +11,4 @@
 export { default as Home } from './Home/Home';
 export { Companies } from './Companies/Companies';
 export { About } from './About/About';
+export { PageNotFound } from './Notfound/Notfound';

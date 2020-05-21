@@ -23,11 +23,12 @@ function Home () {
                     <p><a className="btn btn-primary btn-sm" rel="noopener noreferrer" target="_blank" href="https://twitter.com/anele_ace" role="button">Learn more &raquo;</a></p>
                 </div>
             </div>
+
             <Carousel className="mb-4">
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
+                        src="https://via.placeholder.com/800x400.png/282c34/fff?text=Slide+Image"
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -38,7 +39,7 @@ function Home () {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=Second slide&bg=282c34"
+                        src="https://via.placeholder.com/800x400.png/282c34/fff?text=Slide+Image"
                         alt="Third slide"
                     />
 
@@ -50,7 +51,7 @@ function Home () {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=Third slide&bg=20232a"
+                        src="https://via.placeholder.com/800x400.png/282c34/fff?text=Slide+Image"
                         alt="Third slide"
                     />
 
