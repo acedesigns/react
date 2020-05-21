@@ -23,7 +23,6 @@ export class Companies extends React.Component {
 
     constructor(props) {
         super(props);
-        //const { promiseInProgress } = usePromiseTracker();
         this.state = {
             rand_number: {},
             rand_joke: '',
@@ -34,13 +33,10 @@ export class Companies extends React.Component {
 
     async componentDidMount() {
         this._isMounted = true;
-        //trackPromise();
 
         const fetchedData = await fetchNumberFact();
         const fetchedDate = await fetchDateFact();
         const fetchedJoke = await fetchRandJoke();
-        //const fetchedLove = await fetchLoveCompat();
-
 
         this.setState({rand_number: fetchedData, date_fact: fetchedDate, rand_joke: fetchedJoke });
     }
@@ -80,49 +76,49 @@ export class Companies extends React.Component {
         const love      = this.state.love_calc;
 
         if ( Object.keys(number).length <= 0 || Object.keys(joke).length <= 0) {
-            return 'Loading...';
+            return 'Loading Numbers...';
         }
         const { displayErrors } = this.state;
         return (
             <div>
-            <Row>
+                <Row>
 
-                <div className="col-md-6">
-                    <div className="card mb-4 shadow-sm">
-                        <div className="card-header">
-                            Mathematical Number Meaning/Facts
-                        </div>
-                        <div className="card-body">
-                            <h6> Property about  : {number.number}</h6>
-                            <p className="card-text"> {number.data} </p>
+                    <div className="col-md-6">
+                        <div className="card mb-4 shadow-sm">
+                            <div className="card-header">
+                                Mathematical Number Meaning/Facts
+                            </div>
 
-                            <div className="d-flex justify-content-between align-items-center">
-                                <small className="text-muted"> {moment(number.lastUpdate).subtract(7, 'minutes').fromNow()} </small>
+                            <div className="card-body">
+                                <h6> Property about  : {number.number}</h6>
+                                <p className="card-text"> {number.data} </p>
+
+                                <div className="d-flex justify-content-between align-items-center">
+                                    <small className="text-muted"> {moment(number.lastUpdate).subtract(7, 'minutes').fromNow()} </small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="col-md-6">
-                    <div className="card mb-4 shadow-sm">
-                        <div className="card-header">
-                            Fact about a day of year
-                        </div>
-                        <div className="card-body">
-                            <h6>  Month: {return_date.month}, Day: {return_date.day} </h6>
-                            <p className="card-text"> { return_date.data } </p>
+                    <div className="col-md-6">
+                        <div className="card mb-4 shadow-sm">
+                            <div className="card-header"> Fact about a day of year </div>
 
-                            <div className="d-flex justify-content-between align-items-center">
-                                <small className="text-muted"> {moment(number.lastUpdate).subtract(3, 'minutes').fromNow()} </small>
+                            <div className="card-body">
+                                <h6>  Month: {return_date.month}, Day: {return_date.day} </h6>
+                                <p className="card-text"> { return_date.data } </p>
+
+                                <div className="d-flex justify-content-between align-items-center">
+                                    <small className="text-muted"> {moment(number.lastUpdate).subtract(3, 'minutes').fromNow()} </small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Comment */}
-            </Row>
+                </Row>
 
-            <Row>
+                <Row>
+
                 <div className="col-md-6">
                     <div className="card mb-4 shadow-sm">
                         <div className="card-header">
@@ -177,7 +173,8 @@ export class Companies extends React.Component {
                         </Form>
                     </div>
                 </div>
-            </Row>
+
+                </Row>
             </div>
         )
     }

@@ -12,6 +12,7 @@ import axios from "axios";
 const url = 'https://numbersapi.p.rapidapi.com';
 const jokeAPI = 'https://joke3.p.rapidapi.com';
 const lovePercAPI = 'https://love-calculator.p.rapidapi.com';
+const populationAPI = 'https://world-population.p.rapidapi.com';
 
 const headers = {
     "headers": {
@@ -91,10 +92,51 @@ export const fetchRandJoke = async () => {
 
 
 export const fetchLoveCompat = async (user) => {
-
     try {
         const { data : { fname, percentage, result, sname } }  = await axios.get(`${lovePercAPI}/getPercentage?fname=${ user.fname }&sname=${user.sname}`, loveHeaders);
         return { fname, percentage, result, sname};
+    } catch (error) {
+        return error;
+    }
+};
+
+
+export const fetchWorldPopulation = async () => {
+
+    const Populationeaders = {
+        "headers": {
+            "content-type": "application/octet-stream",
+            "x-rapidapi-host": "world-population.p.rapidapi.com",
+            "x-rapidapi-key": "96d8d96d0dmsh92aec14a72add2ap153e6ajsnd31719630ba4",
+            "useQueryString": true
+        }
+    };
+
+    try {
+        const worldpop  = await axios.get(`${populationAPI}/worldpopulation`, Populationeaders);
+        const allcountries  = await axios.get(`${populationAPI}/allcountriesname`, Populationeaders);
+        //console.log(worldpop);
+
+        return {world: worldpop.data.body, countries: allcountries.data.body};
+    } catch (error) {
+        //
+    }
+};
+
+export const fetchPopulOfCountry = async (country) => {
+    const Populationeaders = {
+        "headers": {
+            "content-type": "application/octet-stream",
+            "x-rapidapi-host": "world-population.p.rapidapi.com",
+            "x-rapidapi-key": "96d8d96d0dmsh92aec14a72add2ap153e6ajsnd31719630ba4",
+            "useQueryString": true
+        }
+    };
+
+    try {
+        const data   = await axios.get(`${populationAPI}/population?country_name=${ country }`, Populationeaders);
+        //console.log( data.data.body );
+        return { data: data.data.body };
     } catch (error) {
         return error;
     }
