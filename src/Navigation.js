@@ -23,7 +23,7 @@ function Navigation () {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to={process.env.PUBLIC_URL + '/'}>Home</Link>
+                            <Link className="nav-link" basename={process.env.PUBLIC_URL}>Home</Link>
                         </li>
 
                         <li className="nav-item">
